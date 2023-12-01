@@ -6,13 +6,13 @@ export const isInvalidNameSize = (input) => {
 	return carNamesArr.some((name) => name.length > 5);
 };
 
-///
 export const isInvalidNumber = (input) => {
 	// true면 숫자아님
 	input = Number(input.replaceAll(" ", ""));
 	return !Number.isInteger(input) || Number.isNaN(input);
 };
 
+///
 export const isInvalidRange = (input) => {
 	//true면 범위 밖
 	input = Number(input.replaceAll(" ", ""));

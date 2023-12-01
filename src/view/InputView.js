@@ -5,6 +5,9 @@ const InputView = {
 	async readCarName() {
 		return await Console.readLineAsync(INPUT_VIEW.askCarName);
 	},
+	async readTryCount() {
+		return await Console.readLineAsync(INPUT_VIEW.askTryCount);
+	},
 	// ...
 };
 

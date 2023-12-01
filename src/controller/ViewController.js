@@ -1,4 +1,5 @@
 import InputView from "../view/InputView.js";
+import OutputView from "../view/OutputView.js";
 import inputErrorHandler from "../service/inputErrorHandler.js";
 import { validateCarName, validateTryCount } from "../service/validateInput.js";
 import InputViewService from "../service/InputViewService.js";
@@ -27,16 +28,34 @@ const ViewController = {
 		return carList;
 	},
 	async playGame() {
-		const carNames = await ViewController.getCarName(); // ['car','b']
+		const carNames = await ViewController.getCarName();
 		const tryCount = await ViewController.getTryCount();
 		let carList = ViewController.generateCarList(carNames);
 
 		Array.from({ length: tryCount }).forEach(() => {
 			carList = CarRacingOnce(carList);
 			OutputViewService.printOnceRacingResult(carList);
-			console.log("확인");
 		});
-	}, // 여기서 모델 선언해서
-	// async replayGame() {},
+
+		return carList;
+	},
+	resultGame(carList) {
+		const positions = [];
+		let winners = [];
+
+		carList.forEach((car) => {
+			const [winner, position] = car.getNameAndPosition();
+			positions.push(position);
+			winners.push(winner);
+		});
+
+		const maxPosition = Math.max(...positions);
+
+		winners = winners.filter((_, idx) => {
+			return positions[idx] === maxPosition;
+		});
+
+		OutputView.printGameResult(winners);
+	},
 };
 export default ViewController;

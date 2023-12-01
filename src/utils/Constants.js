@@ -1,5 +1,5 @@
 export const INPUT_VIEW = Object.freeze({
-	askSometing: "\n",
+	askCarName: "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)\n",
 });
 
 export const OUTPUT_VIEW = Object.freeze({
@@ -8,6 +8,6 @@ export const OUTPUT_VIEW = Object.freeze({
 });
 
 export const ERROR = Object.freeze({
+	isInvalidNameSize: "[ERROR] 자동차 이름은 5자 이하로 입력해주세요.",
 	isInvalidNum: "[ERROR] 숫자가 잘못된 형식입니다.",
-	isDuplicated: "[ERROR] 중복된 값이 있습니다.",
 });

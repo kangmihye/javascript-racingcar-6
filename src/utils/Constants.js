@@ -4,8 +4,7 @@ export const INPUT_VIEW = Object.freeze({
 });
 
 export const OUTPUT_VIEW = Object.freeze({
-	startSomething: "\n",
-	printSomthing: "",
+	printWinner: "최종 우승자 : ",
 });
 
 export const ERROR = Object.freeze({
